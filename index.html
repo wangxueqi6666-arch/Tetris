@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块游戏</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>俄罗斯方块</h1>
+        </header>
+        
+        <div class="game-area">
+            <!-- 主游戏区域 -->
+            <div class="main-area">
+                <canvas id="game-canvas" width="300" height="600"></canvas>
+            </div>
+            
+            <!-- 游戏信息和控制区域 -->
+            <div class="side-area">
+                <!-- 下一个方块预览 -->
+                <div class="next-piece">
+                    <h3>下一个</h3>
+                    <canvas id="next-piece-canvas" width="150" height="150"></canvas>
+                </div>
+                
+                <!-- 分数显示 -->
+                <div class="score-board">
+                    <div class="score">
+                        <h3>分数</h3>
+                        <p id="score">0</p>
+                    </div>
+                    <div class="level">
+                        <h3>等级</h3>
+                        <p id="level">1</p>
+                    </div>
+                    <div class="lines">
+                        <h3>消除行数</h3>
+                        <p id="lines">0</p>
+                    </div>
+                </div>
+                
+                <!-- 游戏设置 -->
+                <div class="game-settings">
+                    <h3>游戏设置</h3>
+                    <div class="setting-item">
+                        <label for="board-width">宽度:</label>
+                        <input type="range" id="board-width" min="8" max="15" value="10">
+                        <span id="width-value">10</span>
+                    </div>
+                    <div class="setting-item">
+                        <label for="board-height">高度:</label>
+                        <input type="range" id="board-height" min="15" max="25" value="20">
+                        <span id="height-value">20</span>
+                    </div>
+                </div>
+                
+                <!-- 游戏控制按钮 -->
+                <div class="controls">
+                    <button id="start-btn">开始游戏 (S)</button>
+                    <button id="pause-btn" style="display:none;">暂停 (P)</button>
+                    <button id="restart-btn" style="display:none;">重新开始 (R)</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 游戏说明 -->
+        <div class="instructions">
+            <h3>操作说明</h3>
+            <div class="movement-controls">
+                <p>← → : 左右移动</p>
+                <p>↑ : 旋转</p>
+                <p>↓ : 加速下落</p>
+                <p>空格 : 直接落到底部</p>
+            </div>
+            <div class="shortcut-controls">
+                <h4>快捷键</h4>
+                <p>S : 开始游戏</p>
+                <p>P : 暂停/继续</p>
+                <p>R : 重新开始</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 游戏结束弹窗 -->
+    <div id="game-over" class="modal hidden">
+        <div class="modal-content">
+            <h2>游戏结束</h2>
+            <p>你的分数: <span id="final-score">0</span></p>
+            <button id="play-again-btn">再玩一次</button>
+        </div>
+    </div>
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
