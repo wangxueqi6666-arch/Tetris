@@ -1,4 +1,4 @@
-/* 贪吃蛇游戏样式 */
+/* 俄罗斯方块游戏样式 */
 
 /* 全局样式重置 */
 * {
@@ -34,7 +34,7 @@ header {
 }
 
 header h1 {
-    color: #27ae60;
+    color: #ff6b6b;
     font-size: 2.5rem;
 }
 
@@ -52,9 +52,10 @@ header h1 {
 }
 
 #game-canvas {
-    background-color: #f5f5f5;
-    border: 3px solid #27ae60;
+    background-color: #000;
+    border: 3px solid #333;
     display: block;
+    border-radius: 8px;
 }
 
 /* 侧边信息区域 */
@@ -63,6 +64,89 @@ header h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* 下一个方块预览 */
+.next-piece {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.next-piece h3 {
+    color: #ff6b6b;
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+#next-piece-canvas {
+    background-color: #000;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 游戏设置 */
+.game-settings {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.game-settings h3 {
+    color: #ff6b6b;
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.setting-item label {
+    color: #333;
+    font-size: 0.9rem;
+    min-width: 50px;
+}
+
+.setting-item input[type="range"] {
+    flex: 1;
+    height: 5px;
+    background: #ddd;
+    outline: none;
+    border-radius: 5px;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-item input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.setting-item span {
+    color: #ff6b6b;
+    font-weight: bold;
+    min-width: 25px;
+    text-align: center;
 }
 
 
@@ -83,9 +167,9 @@ header h1 {
 }
 
 .score-board h3 {
-    font-size: 1rem;
-    color: #27ae60;
-    margin-bottom: 5px;
+    color: #ff6b6b;
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
 }
 
 .score-board p {
@@ -122,11 +206,22 @@ button:hover {
 }
 
 #start-btn {
-    background-color: #27ae60;
+    background: linear-gradient(45deg, #ff6b6b, #ff5252);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    margin: 10px;
 }
 
 #start-btn:hover {
-    background-color: #219653;
+    background: linear-gradient(45deg, #ff5252, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
 }
 
 #pause-btn {
@@ -175,6 +270,29 @@ button:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
+    margin-bottom: 15px;
+}
+
+.shortcut-controls {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.shortcut-controls h4 {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+}
+
+.shortcut-controls p {
+    margin: 0 0 5px 0;
+    padding: 5px 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    font-size: 0.85rem;
+    display: block;
+    text-align: left;
 }
 
 /* 游戏结束弹窗 */
@@ -217,13 +335,20 @@ button:hover {
 }
 
 #play-again-btn {
-    background-color: #27ae60;
-    padding: 12px 25px;
+    background: linear-gradient(45deg, #ff6b6b, #ff5252);
+    color: white;
+    border: none;
+    padding: 12px 24px;
     font-size: 1.1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
 }
 
 #play-again-btn:hover {
-    background-color: #219653;
+    background: linear-gradient(45deg, #ff5252, #ff6b6b);
+    transform: translateY(-2px);
 }
 
 .hidden {
